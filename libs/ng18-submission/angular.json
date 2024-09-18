@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-18-submission": {
+    "ng18-submission": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -12,12 +12,12 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "ng18",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ng-18-submission",
+            "outputPath": "../../dspace-angular/src/assets/libs/ng18-submission",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -34,7 +34,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              {
+                "input": "./scripts/postbuild-bundler.js",
+                "bundleName": "bundle",
+                "inject": false
+              }
+            ]
           },
           "configurations": {
             "production": {
@@ -50,7 +56,6 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all"
             },
             "development": {
               "optimization": false,
@@ -64,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ng-18-submission:build:production"
+              "buildTarget": "ng18-submission:build:production"
             },
             "development": {
-              "buildTarget": "ng-18-submission:build:development"
+              "buildTarget": "ng18-submission:build:development"
             }
           },
           "defaultConfiguration": "development"

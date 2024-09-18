@@ -52,6 +52,7 @@ import { IdleModalComponent } from './shared/idle-modal/idle-modal.component';
 import { CSSVariableService } from './shared/sass-helper/css-variable.service';
 import { HostWindowState } from './shared/search/host-window.reducer';
 import { ThemeService } from './shared/theme-support/theme.service';
+import('../assets/libs/ng18-submission/browser/bundle.js');
 
 @Component({
   selector: 'ds-app',

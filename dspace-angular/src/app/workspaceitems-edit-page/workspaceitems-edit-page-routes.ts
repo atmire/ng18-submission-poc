@@ -3,11 +3,11 @@ import { Route } from '@angular/router';
 import { authenticatedGuard } from '../core/auth/authenticated.guard';
 import { i18nBreadcrumbResolver } from '../core/breadcrumbs/i18n-breadcrumb.resolver';
 import { ThemedFullItemPageComponent } from '../item-page/full/themed-full-item-page.component';
-import { ThemedSubmissionEditComponent } from '../submission/edit/themed-submission-edit.component';
 import { itemFromWorkspaceResolver } from './item-from-workspace.resolver';
 import { ItemFromWorkspaceBreadcrumbResolver } from './item-from-workspace-breadcrumb.resolver';
 import { workspaceItemPageResolver } from './workspace-item-page.resolver';
 import { ThemedWorkspaceItemsDeletePageComponent } from './workspaceitems-delete-page/themed-workspaceitems-delete-page.component';
+import { SubmissionPageComponent } from '../submission-2/submission-page/submission-page.component';
 
 export const ROUTES: Route[] = [
   {
@@ -24,9 +24,10 @@ export const ROUTES: Route[] = [
       {
         canActivate: [authenticatedGuard],
         path: 'edit',
-        component: ThemedSubmissionEditComponent,
+        component: SubmissionPageComponent,
         resolve: {
           breadcrumb: i18nBreadcrumbResolver,
+          wsi: workspaceItemPageResolver
         },
         data: { title: 'submission.edit.title', breadcrumbKey: 'submission.edit' },
       },
