@@ -1,0 +1,8 @@
+@switch (field().input.type) {
+  @case ('date') {
+    <ng18-date-field [field]="field()" [section]="section()" [wsi]="wsi()" [formControlName]="field().formControlName"></ng18-date-field>
+  }
+  @default {
+    <ng18-onebox-field [field]="field()" [section]="section()" [wsi]="wsi()" [formControlName]="field().formControlName"></ng18-onebox-field>
+  }
+}

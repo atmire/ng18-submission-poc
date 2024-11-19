@@ -1,0 +1,18 @@
+<fieldset id="{{ field().id }}" class="form-group" [formGroup]="customFieldForm">
+  @if (field().label) {
+    <legend class="col-form-label">{{ field().label }}</legend>
+  }
+  <div class="d-flex">
+    <input id="{{ field().id }}_year" aria-label="year" placeholder="year" type="number"
+           style="width: 120px" class="form-control" min="0" max="3000"
+           formControlName="year">
+    <input id="{{ field().id }}_month" aria-label="month" placeholder="month" type="number"
+           style="width: 90px" class="form-control ml-1" min="0" max="12" formControlName="month">
+    <input id="{{ field().id }}_day" aria-label="day" placeholder="day" type="number"
+           style="width: 90px" class="form-control ml-1" min="0" max="31" formControlName="day">
+  </div>
+  <ng18-hint-or-error [id]="field().id"
+                      [shouldShowError]="customFieldForm.invalid && (customFieldForm.dirty || !customFieldForm.untouched)"
+                      [error]="field().mandatoryMessage"
+                      [hint]="field().hints"></ng18-hint-or-error>
+</fieldset>

@@ -1,0 +1,6 @@
+@if (error() && shouldShowError()) {
+  <small id="{{ id() }}_error"
+         class="form-text text-danger">{{ error() }}</small>
+} @else if (hint()) {
+  <small id="{{ id() }}_hint" class="form-text text-muted">{{ hint() }}</small>
+}

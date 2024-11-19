@@ -1,0 +1,10 @@
+<div class="form-group" [formGroup]="customFieldForm">
+  <label for="{{ field().id }}">{{ field().label }}@if (field().mandatory) {*}</label>
+  <input type="text" class="form-control" [class.is-invalid]="onebox?.invalid && (onebox?.dirty || !onebox?.untouched)"
+         id="{{ field().id }}" formControlName="onebox"
+         [attr.aria-describedby]="field().hints ? field().id  + '_hint' : null">
+  <ng18-hint-or-error [id]="field().id"
+                      [shouldShowError]="!!(onebox?.invalid && (onebox?.dirty || !onebox?.untouched))"
+                      [error]="field().mandatoryMessage"
+                      [hint]="field().hints"></ng18-hint-or-error>
+</div>

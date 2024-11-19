@@ -6,8 +6,8 @@
   } @else if((wsiRd$ | async).hasFailed) {
     <div class="alert alert-danger">The form couldn't load</div>
   } @else {
-    @if ((model$ | async) !== undefined) {
-      <ng18-submission [model]="model$ | async"></ng18-submission>
+    @if ((model$ | async) !== undefined && (itemRd$ | async)?.hasSucceeded) {
+      <ng18-submission (submit)="onSubmit($event)"></ng18-submission>
     }
   }
 </div>

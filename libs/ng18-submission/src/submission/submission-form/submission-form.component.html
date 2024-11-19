@@ -1,0 +1,14 @@
+<form [formGroup]="submissionForm" (ngSubmit)="onSubmit($event)">
+  <div [formGroupName]="section().name">
+    @for (row of section().rows; track row) {
+      <div class="row">
+        @for (field of row.fields; track field.id) {
+          <div class="col">
+            <ng18-submission-field-loader [field]="field" [section]="section()" [wsi]="wsi()"></ng18-submission-field-loader>
+          </div>
+        }
+      </div>
+    }
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
